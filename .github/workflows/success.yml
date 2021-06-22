@@ -1,0 +1,23 @@
+# nome do workflow
+name: A successfull shell command workflow
+# definindo eventos que vao disparar este workflow
+# como push, pull_request, issue, etc
+on: [push]
+# uma execucao do workflow e feita de um ou mais jobs
+# jobs sao executados em paralelo por padrao.
+# jobs podem ter dependencias entre si. para isso precisa-se de um <job_id>
+# cada job e executado em uma instancia recem criada de um ambiente virtual especificado pela chave runs-on.
+jobs:
+    run-shell-command:
+        # definindo OS da VM:
+        runs-on: ubuntu-20.04
+        # steps executam as actions/commands
+        # elas podem ter um nome:
+        steps:
+            - name: echoing a string
+              run: echo "Helô Mundo!"
+            - name: Multiline script
+              run: |
+                  node -v
+                  npm -v
+                  python --version
