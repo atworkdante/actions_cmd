@@ -4,8 +4,6 @@ name: A successfull shell command workflow
 # como push, pull_request, issue, etc
 #on: [push]
 on:
-  push:
-    branches: master
   schedule:
     - cron: '* * * * *'
 # uma execucao do workflow e feita de um ou mais jobs
