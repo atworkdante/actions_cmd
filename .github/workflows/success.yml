@@ -2,7 +2,12 @@
 name: A successfull shell command workflow
 # definindo eventos que vao disparar este workflow
 # como push, pull_request, issue, etc
-on: [push]
+#on: [push]
+on:
+  push:
+    branches: master
+    schedule:
+      - cron: '* * * * *'
 # uma execucao do workflow e feita de um ou mais jobs
 # jobs sao executados em paralelo por padrao.
 # jobs podem ter dependencias entre si. para isso precisa-se de um <job_id>
@@ -18,6 +23,5 @@ jobs:
               run: echo "Helô Mundo!"
             - name: Multiline script
               run: |
-                  node -v
-                  npm -v
-                  python --version
+                now=$(date +"%T")
+                echo "Current time : $now"
